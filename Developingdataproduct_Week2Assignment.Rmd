@@ -1,0 +1,32 @@
+---
+title: "Best Electro festivals around the world in 2019"
+author: "Celine B"
+date: "11/11/2020"
+output: html_document
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+
+```{r, echo=FALSE}
+library(leaflet)
+logo <- makeIcon(
+  iconUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQKy09ErWgQ5RYl-aMJpVpFufaaUe-oqZSnlw&usqp=CAU",
+  iconWidth = 30*200/200, iconHeight = 30
+  )
+
+festivals <- data.frame(
+  lat = c(51.0519, 25.7549, 36.2729),
+  lng = c(4.2246, -80.1860, -115.0110)
+  )
+
+my_map <- festivals %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(icon = logo, popup = c("Tomorrowland", "Ultra Music Festival", "Electric Daisy Festival"))
+my_map
+```
+
+
